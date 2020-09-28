@@ -1,7 +1,8 @@
 "use strict";
-
+var config = require('../config');
 var amqp = require("amqplib/callback_api");
-amqp.connect("amqp://localhost", function (err, connection) {
+
+amqp.connect(config.getStringConnection(), function (err, connection) {
   if (err) throw err;
 
   connection.createChannel(function (err, channel) {
